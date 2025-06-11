@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Internship FAQ Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Animated background */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #fbc2eb, #a6c1ee);
+      background-size: 800% 800%;
+      animation: gradientBG 15s ease infinite;
+      color: #333;
+      text-align: center;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .fading-heading {
+      font-size: 2.8em;
+      font-weight: bold;
+      margin-top: 40px;
+      padding: 20px;
+      color: #fff;
+      background: linear-gradient(to right, #4a148c, #880e4f);
+      display: inline-block;
+      border-radius: 15px;
+      animation: bounceIn 2s ease;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border: 3px dashed #fff;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .description {
+      font-size: 1.3em;
+      margin: 20px auto 30px;
+      max-width: 600px;
+      background: #ffffffbb;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .glow-btn {
+      background: #6a1b9a;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      font-size: 1em;
+      margin-top: 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #6a1b9a, 0 0 40px #6a1b9a, 0 0 80px #6a1b9a;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .glow-btn:hover {
+      background: #4a148c;
+      box-shadow: 0 0 20px #4a148c, 0 0 60px #4a148c, 0 0 100px #4a148c;
+    }
+
+    df-messenger {
+      --df-messenger-button-titlebar-color: #4a148c;
+      --df-messenger-button-titlebar-font-color: white;
+      --df-messenger-chat-background-color: #f3e5f5;
+      --df-messenger-font-color: black;
+      --df-messenger-send-icon: #6a1b9a;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fading-heading">
+    🤖 Internship FAQ Chatbot
+  </div>
+
+  <div class="description">
+    💬 Ask anything about internship applications, eligibility, durations, or organization info.
+    <br><br>
+    🚀 Built to instantly support your internship journey with smart answers.
+    <br><br>
+    <button class="glow-btn" onclick="document.querySelector('df-messenger').shadowRoot.querySelector('button').click();">Start Chatting</button>
+  </div>
+
+  <!-- Dialogflow Messenger -->
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger
+    intent="WELCOME"
+    chat-title="InternshipFAQBot"
+    agent-id="c02a157b-8741-434f-a71a-a9919e7960c1"
+    language-code="en">
+  </df-messenger>
+
+</body>
+</html>
